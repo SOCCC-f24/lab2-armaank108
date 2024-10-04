@@ -3,16 +3,25 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 def encrypt(email="abc012"):
     """
-    Encrypt the email by shifting the alphabetic part by 3 ASCII values.
+    Shifts the first three alphabetic characters of the input string up by 3 ASCII values
+    to "encrypt" the email string.
+
+    The function takes a 6-character alphanumeric string (3 letters followed by 3 digits).
+    It validates the length and format of the input, ensuring it consists of exactly 3 letters
+    followed by 3 digits. If the validation fails, a descriptive error message is returned.
+    If the input is valid, the first three letters are shifted up by 3 ASCII values, leaving
+    the digits unchanged.
 
     Args:
-        email (str): A 6-character string with 3 letters followed by 3 digits.
+        email (str): A 6-character alphanumeric string (3 letters followed by 3 digits).
+                     Default value is 'abc012'.
 
     Returns:
-        str: The encrypted email or an error message if validation fails.
+        str: The "encrypted" email string with the letters shifted up by 3, or an error message
+             if the input does not meet the validation requirements.
+             For example, if input is 'abc012', the return value will be 'dbc012'.
     """
     output = "" 
-    # Check if the length of the email is 6 characters
     len_flag = len(email) != 6
     
     # Check if the first part is alphabetic and the second part is numeric
@@ -48,16 +57,24 @@ def encrypt(email="abc012"):
 
 def decrypt(email="def345"):
     """
-    Decrypt the email by shifting the alphabetic part down by 3 ASCII values.
+    Reverses the "encryption" by shifting the first three alphabetic characters of the input
+    string down by 3 ASCII values to "decrypt" the email string.
+
+    The function takes a 6-character alphanumeric string (3 letters followed by 3 digits).
+    It validates the length and format of the input. If the input is valid, the first three
+    letters are shifted down by 3 ASCII values, leaving the digits unchanged. This reverses
+    the effect of the `encrypt` function.
 
     Args:
-        email (str): A 6-character string with 3 letters followed by 3 digits.
+        email (str): A 6-character alphanumeric string (3 letters followed by 3 digits).
+                     Default value is 'def345'.
 
     Returns:
-        str: The decrypted email or an error message if validation fails.
+        str: The "decrypted" email string with the letters shifted down by 3, or an error message
+             if the input does not meet the validation requirements.
+             For example, if input is 'def345', the return value will be 'abc345'.
     """
     output = "" 
-    # Check if the length of the email is 6 characters
     len_flag = len(email) != 6
     
     # Check if the first part is alphabetic and the second part is numeric
